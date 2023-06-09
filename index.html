@@ -18,6 +18,16 @@
             background-color: skyblue;
         }
     </style>
+    <script type="text/javascript"> 
+        var bDisplay = true; function doDisplay(){ 	
+            var con = document.getElementById("myDIV"); 	
+            if(con.style.display=='none'){ 		
+                con.style.display = 'block'; 	
+            }else{ 		
+                con.style.display = 'none'; 	
+            } 
+        } 
+    </script>
 </head>
 <body>
     <header>
@@ -27,10 +37,15 @@
         <ul>
             <li><a href="#홈">홈</a></li>
             <li><a href="#소개">소개</a></li>
-            <li><a href="#Bookstore">Bookstore</a></li>
             <li><a href="#서비스">서비스</a></li>
+            <li><a href="#문의">문의</a></li>
         </ul>
     </nav>
+    <a href="javascript:doDisplay();"> > 내용보기</a><br/><br/> 
+	<div id="myDIV" style="display:none; background-color: #eee;"> 	
+		<h3>Selenium .click() 예제입니다.</h3> 	
+		<p>display block 속성값은 내부 요소를 나타나게 하며 none 는 사라지게 합니다.</p> 
+	</div>
     <main>
         <section>
             <h2>소개</h2>
