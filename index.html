@@ -1,57 +1,145 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>멋쟁이 사자처럼 데이터분석스쿨 1기</title>
-    <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawling DAS</title>
+    <style>      
+        /* 전체 페이지 컨테이너 스타일 */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-        }
-        h1 {
+            padding: 0;
+            background-color: #f4f4f4;
             color: #333;
         }
-        p {
-            color: #666;
+    /* 헤더 스타일 */
+    header {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+        color: #fff;
+    }
+    
+    /* 네비게이션 바 스타일 */
+    nav {
+        background-color: #444;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    nav ul li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    /* 본문 컨테이너 스타일 */
+    .container {
+        max-width: 960px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+    }
+    
+    /* 푸터 스타일 */
+    footer {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+        color: #fff;
+    }
+    
+    /* 추가된 스타일 */
+    .hidden {
+        display: none;
+    }
+    
+    .visible {
+        display: block;
+    }
+</style>
+<script>
+    // 페이지 초기 로딩 시 홈 화면 보이기
+    window.onload = function() {
+        showContent('home');
+    }
+    
+    // 내용 변경 함수
+    function showContent(content) {
+        var home = document.getElementById('home');
+        var about = document.getElementById('about');
+        var services = document.getElementById('services');
+        var contact = document.getElementById('contact');
+        var loginContent = document.getElementById('loginContent');
+        
+        // 모든 내용 숨기기
+        home.style.display = 'none';
+        about.style.display = 'none';
+        services.style.display = 'none';
+        contact.style.display = 'none';
+        loginContent.style.display = 'none';
+        
+        // 선택한 내용 보이기
+        if (content === 'home') {
+            home.style.display = 'block';
+        } else if (content === 'about') {
+            about.style.display = 'block';
+        } else if (content === 'services') {
+            services.style.display = 'block';
+        } else if (content === 'contact') {
+            contact.style.display = 'block';
+        } else if (content === 'login') {
+            loginContent.style.display = 'block';
         }
-        .highlight {
-            background-color: skyblue;
-        }
-    </style>
-    <script type="text/javascript"> 
-        var bDisplay = true; function doDisplay(){ 	
-            var con = document.getElementById("myDIV"); 	
-            if(con.style.display=='none'){ 		
-                con.style.display = 'block'; 	
-            }else{ 		
-                con.style.display = 'none'; 	
-            } 
+    }
+</script>
+<script type="text/javascript"> 
+    var bDisplay = true; 
+    function doDisplay() { 	
+        var con = document.getElementById("myDIV"); 	
+        if (con.style.display=='none') { 		
+            con.style.display = 'block'; 	
+        } else { 		
+            con.style.display = 'none'; 	
         } 
-    </script>
+    } 
+</script>
 </head>
 <body>
     <header>
-        <h1>환영합니다!</h1>
+        <h1>멋쟁이 사자처럼 데이터분석스쿨 1기</h1>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#홈">홈</a></li>
-            <li><a href="#소개">소개</a></li>
-            <li><a href="#서비스">서비스</a></li>
-            <li><a href="#문의">문의</a></li>
-        </ul>
-    </nav>
-    <a href="javascript:doDisplay();"> > 내용보기</a><br/><br/> 
-	<div id="myDIV" style="display:none; background-color: #eee;"> 	
-		<h3>Selenium .click() 예제입니다.</h3> 	
-		<p>display block 속성값은 내부 요소를 나타나게 하며 none 는 사라지게 합니다.</p> 
-	</div>
-    <main>
-        <section>
-            <h2>소개</h2>
-            <p>안녕하세요! 멋쟁이사자처럼 데이터분석스쿨 1기입니다.</p>
-            <p class="highlight">이 페이지는 HTML과 CSS로 만들어졌습니다.</p>
-        </section>
+<nav>
+    <ul>
+        <li><a href="#" onclick="showContent('home')">Home</a></li>
+        <li><a href="#" onclick="showContent('about')">About</a></li>
+        <li><a href="#" onclick="showContent('services')">Services</a></li>
+        <li><a href="#" onclick="showContent('contact')">Contact</a></li>
+        <li><a href="#" onclick="showContent('login')">login</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <!-- 내용 추가 -->
+    <div id="home" class="visible">
+        <h2>환영합니다! 멋쟁이사자처럼 데이터분석스쿨 1기입니다.</h2>
+        <p class='highlight'>이 페이지는 <파이썬 왕초보의 크롤링 도전: 웹 데이터 수집부터 저장까지>를 위해 만들어진 페이지입니다.</p>
+        <a href="javascript:doDisplay();"> > 내용보기</a><br/><br/> 
+        <div id="myDIV" style="display:none; background-color: #eee;"> 	
+	        <h3>Selenium .click() 예제입니다.</h3> 	
+	        <p>display block 속성값은 내부 요소를 나타나게 하며 none 는 사라지게 합니다.</p> 
+        </div>
         <section>
             <h2>Bookstore</h2>
             <bookstore>
@@ -78,17 +166,68 @@
                 </book>
             </bookstore>
         </section>
-        <section>
-            <h2>서비스</h2>
-            <ul>
-                <li>웹 개발</li>
-                <li>UI/UX 디자인</li>
-                <li>맞춤형 솔루션 제공</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 멋쟁이 사자처럼 데이터분석스쿨 1기. All rights reserved.</p>
-    </footer>
+    </div>
+
+    
+    <div id="about" class="hidden">
+        <h2>About</h2>
+        <p>무료 전자책은 기본편과 활용편으로 이루어져있습니다.</p>
+        <p>기본편에서 환경설정 및 개념에 대한 학습을 간단하게 마치고, 활용편을 따라 작성하기만 한다면 누구라도 크롤링이 가능합니다!</p>
+    </div>
+    
+    <div id="services" class="hidden">
+        <h2>Services</h2>
+        <p>Python 왕초보의 크롤링을 돕기위해 무료 전자책을 집필하였습니다.</p>
+        <p>크롤링과 Python을 처음 접하는 모든 분들에게 도움이 되기를 바랍니다.</p>
+
+    </div>
+    
+    <div id="contact" class="hidden">
+        <h2>Contact</h2>
+        <p>아래 페이지는 저희 팀의 GitHub입니다. 필요한 자료를 업로드해두었으니, 자유롭게 사용하시길 바랍니다.</p>
+        <p><a href="https://github.com/spanish96/Crawling_DAS" onclick="showContent('Crawling organization GitHub')">Crawling organization GitHub</a></p>
+    </div>
+    
+    <div id="loginContent" class="hidden">
+        <h3>ID에는 무엇이든 입력하셔도 됩니다. PW에는 '1234'를 입력해 주십시오.</h3>
+
+
+            <form id="myForm" onsubmit="extractData(); return false;">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <button type="submit">Login</button>
+                <p>      </p>
+            </form>
+
+            <div id="message" style="display: none;">
+                <h3>로그인에 성공하셨습니다. <span id="usernameText"></span>!</h3>
+                <p>      </p>
+            </div>
+
+            <script>
+                // Submitting the form
+                function submitForm() {
+                    document.getElementById('myForm').submit();
+                }
+	
+                // Extracting text and attribute values
+                function extractData() {
+                    const username = document.getElementById('username').value;
+                    const password = document.getElementById('password').value;
+            
+                    if (password === "1234") {
+                        // Displaying extracted data
+                        document.getElementById('usernameText').textContent = username;
+                        document.getElementById('message').style.display = 'block';
+                    } else {
+                        alert("로그인에 실패했습니다. 다시 시도해주십시오.");
+                    }
+                }
+            </script>
+</div>
+
+<footer>
+    <p>&copy; 2023 Crawling DAS 1th. All rights reserved.</p>
+</footer>
 </body>
 </html>
